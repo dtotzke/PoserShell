@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <Target Name="CopyToModuleFolder" AfterTargets="Build">
+    <PropertyGroup>
+      <ModuleOutputPath>$(MSBuildProjectDirectory)\..\..\modules\PoserShell\$(TargetFramework)</ModuleOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <OutputFiles Include="$(OutputPath)**\*.*" />
+    </ItemGroup>
+    <MakeDir Directories="$(ModuleOutputPath)" />
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(ModuleOutputPath)\%(RecursiveDir)" SkipUnchangedFiles="true" />
+    <Message Text="Copied module output to $(ModuleOutputPath)" Importance="high" />
+  </Target>
+
+</Project>

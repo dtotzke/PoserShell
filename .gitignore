@@ -416,3 +416,15 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# PoserShell-specific
+# Module build artifacts in framework subfolders
+modules/PoserShell/net*/
+
+# PowerShell
+PSGetModuleInfo.xml
+
+# Test results
+TestResults/
+*.trx
+coverage/

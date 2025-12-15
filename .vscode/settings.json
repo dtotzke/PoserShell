@@ -1,0 +1,13 @@
+{
+    "powershell.powerShellDefaultVersion": "PowerShell (x64)",
+    "powershell.integratedConsole.showOnStartup": false,
+    "powershell.debugging.createTemporaryIntegratedConsole": false,
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    },
+    "search.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    }
+}

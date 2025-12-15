@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/PoserShell/PoserShell.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "build-release",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/PoserShell/PoserShell.csproj",
+                "-c",
+                "Release",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": "build"
+        },
+        {
+            "label": "clean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "clean",
+                "${workspaceFolder}/src/PoserShell/PoserShell.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "pwsh",
+            "type": "shell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "Invoke-Pester",
+                "-Path",
+                "${workspaceFolder}/tests",
+                "-Output",
+                "Detailed"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}
