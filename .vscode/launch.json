@@ -2,63 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "PowerShell: Launch PoserShell Module",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "",
-            "cwd": "${workspaceFolder}",
-            "createTemporaryIntegratedConsole": false,
-            "args": [],
-            "preLaunchTask": "build",
-            "postDebugTask": null,
-            "presentation": {
-                "hidden": false,
-                "group": "",
-                "order": 1
-            },
-            "attachDebugger": true,
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
-        },
-        {
             "name": "PowerShell: Launch Current Script",
             "type": "PowerShell",
             "request": "launch",
             "script": "${file}",
-            "cwd": "${file}",
-            "args": [],
-            "presentation": {
-                "hidden": false,
-                "group": "",
-                "order": 2
-            }
+            "args": []
         },
         {
-            "name": "PowerShell: Interactive Session",
+            "name": "PowerShell: Interactive with PoserShell",
             "type": "PowerShell",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "createTemporaryIntegratedConsole": false,
-            "script": "${workspaceFolder}/modules/PoserShell/PoserShell.psd1",
-            "args": [
-                "-NoExit",
-                "-NoProfile",
-                "-Command",
-                "Import-Module ${workspaceFolder}/modules/PoserShell/PoserShell.psd1 -Verbose"
-            ],
-            "preLaunchTask": "build",
-            "presentation": {
-                "hidden": false,
-                "group": "",
-                "order": 3
-            }
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}",
-            "justMyCode": false
+            "script": "${workspaceFolder}/Initialize-PoserShell.ps1",
+            "args": [],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

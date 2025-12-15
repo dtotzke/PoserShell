@@ -36,6 +36,7 @@ namespace PoserShell.Commands
 
             if (Detailed.IsPresent)
             {
+                info.Properties.Add(new PSNoteProperty("CLRVersion", System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription));
                 info.Properties.Add(new PSNoteProperty("PSVersion", PSVersionInfo.PSVersion.ToString()));
                 info.Properties.Add(new PSNoteProperty("PSEdition", PSVersionInfo.PSEdition));
                 info.Properties.Add(new PSNoteProperty("CLRVersion", System.Environment.Version.ToString()));
